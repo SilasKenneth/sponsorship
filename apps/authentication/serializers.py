@@ -1,4 +1,4 @@
-from .models import User, Student
+from sponsorship.apps.authentication.users.user import User, Student
 from rest_framework import serializers
 
 

@@ -1,12 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from rest_framework import generics
 
 
-class LoginView(TemplateView):
+class LoginView(generics.CreateAPIView):
 
-    def get(self, request, *args, **kwargs):
-        print(request, dir(request))
+    def post(self, request, *args, **kwargs):
+        print(request.data)
         return HttpResponse()
 
 # Create your views here.

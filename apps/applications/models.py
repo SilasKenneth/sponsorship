@@ -1,6 +1,6 @@
 from django.db import models
 from apps.authentication.models.sponsor import Sponsor
-from apps.authentication.models.student  import Student
+from apps.authentication.models.student import Student
 
 
 class Sponsorship(models.Model):

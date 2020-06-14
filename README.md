@@ -60,3 +60,25 @@ python manage.py migrate
 python manage.py runserver
 ```
 - Navigate the address `127.0.0.1:3000` in your browser to view you application.
+
+## Application current state
+The application API is almost done, what is remaining is linking up things to work together.
+### What is missing?
+- In developing Software, one of the core things is writing automated tests to test your application for possible errors not just limited
+to logic errors, the application is not tested at the current state.
+   ##### Why?
+   - Given the time and the size of the project, testing would have been a good idea, but the project had
+   small requirements which could just be tested manually.
+   - With time the project would have tests to verify the logic and make sure bugs are caught before they
+   reach production.
+
+- Another thing that is missing is that most of the package version are never locked especially,
+the ones that are dependencies of the installed packages. Adding a Pipefile to make sure dependencies are locked would be the best idea.
+
+#### What can be improved
+- To make the application scale, switching to a more reliable architecture such as event driven architecture or event sourcing would ease the load on the database to make
+sure the load is given to something else like a messaging system.
+- First off, the application is not complete, so completing it would make a big impact.
+- Writing the tests.
+- Using docker or vagrant to make sure there is a replicable environment for running the application.
+- Including a CI/CD pipeline to make sure contributing to the project doesn't become a nightmare for me.

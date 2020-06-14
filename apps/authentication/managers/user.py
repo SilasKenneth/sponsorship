@@ -18,7 +18,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         return user
 
-    def create_super_user(self, username, email, password):
+    def create_superuser(self, username, email, password):
         """
         Create and return a `User` with superuser powers.
         Superuser powers means that this use is an admin that can do anything
@@ -27,6 +27,9 @@ class UserManager(BaseUserManager):
         user = self.create_user(username, email, password)
         user.is_superuser = True
         user.is_staff = True
+        user.is_student = False
+        user.is_sponsor = False
+        user.save()
         return user
 
     def create_student_user(self, username, email, password):

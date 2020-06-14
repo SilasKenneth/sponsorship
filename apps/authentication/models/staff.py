@@ -1,8 +1,11 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
+from apps.authentication.managers.user import UserManager
+import uuid
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    user_id = models.UUIDField(unique=True, default=uuid.uuid4())
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(unique=True, db_index=True)
     password = models.CharField(max_length=512)
@@ -23,6 +26,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = ['username', 'password']
+
+    objects = UserManager()
 
     class Meta:
         db_table = 'users'

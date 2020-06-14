@@ -5,7 +5,7 @@ import uuid
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    user_id = models.UUIDField(unique=True, default=uuid.uuid4())
+    user_id = models.UUIDField(unique=True, default=uuid.uuid4)
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(unique=True, db_index=True)
     password = models.CharField(max_length=512)

@@ -4,14 +4,20 @@ import uuid
 
 class School(models.Model):
     id = models.IntegerField(primary_key=True, auto_created=True)
-    school_id = models.UUIDField(default=str(uuid.uuid4()))
+    school_id = models.UUIDField(default=uuid.uuid4(), unique=True)
     name = models.CharField(max_length=40, null=False, default='No name')
+
+    class Meta:
+        db_table = 'schools'
 
 
 class Course(models.Model):
     id = models.IntegerField(primary_key=True, auto_created=True)
-    course_id = models.UUIDField(default=str(uuid.uuid4()))
+    course_id = models.UUIDField(unique=True, auto_created=True, null=False, default=uuid.uuid4)
     name = models.CharField(max_length=200, null=False, default='No name')
-    school = models.ForeignKey(School, on_delete=models.CASCADE, db_column='school_id')
+    school = models.ForeignKey(School, on_delete=models.CASCADE, db_column='school_id', to_field='school_id')
+
+    class Meta:
+        db_table = 'courses'
 
 # Create your models here.

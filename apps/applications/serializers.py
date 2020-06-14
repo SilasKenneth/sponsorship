@@ -6,9 +6,11 @@ class SponsorshipSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Sponsorship
+        fields = '__all__'
 
 
 class ApplicationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Application
+        fields = '__all__'

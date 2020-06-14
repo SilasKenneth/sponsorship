@@ -14,4 +14,7 @@ class CreateApplications(generics.CreateAPIView):
 class ApplicationApproveAPIView(generics.UpdateAPIView):
     serializer_class = ApplicationSerializer
     permission_classes = (StaffCanDoAnythingToApplications,)
+
+    def put(self, request, *args, **kwargs):
+        return response.Response({})
 # Create your views here.
